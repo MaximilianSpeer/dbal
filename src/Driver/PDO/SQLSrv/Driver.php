@@ -87,6 +87,10 @@ final class Driver extends AbstractSQLServerDriver
             $connectionOptions['MultipleActiveResultSets'] = $params['MultipleActiveResultSets'] ? 'true' : 'false';
         }
 
+        if (isset($params['TrustServerCertificate'])) {
+            $connectionOptions['TrustServerCertificate'] = $params['TrustServerCertificate'] ? 'true' : 'false';
+        }
+
         return $dsn . $this->getConnectionOptionsDsn($connectionOptions);
     }
 
